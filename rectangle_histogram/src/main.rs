@@ -21,14 +21,40 @@ fn main() {
 }
 
 fn solution(rectangle_histogram: Vec<i32>) -> i32 {
-    0
+    let mut max = 0;
+    if rectangle_histogram.len() == 1 {
+        return rectangle_histogram[0];
+    }
+    for (i, e) in rectangle_histogram.iter().enumerate() {
+        if i == 0 {
+            max = *e;
+        } else if e <= &rectangle_histogram[i - 1] {
+            max += e
+        }
+    }
+    max
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+
     #[test]
-    fn it_works() {
+    fn it_works_with_empty_list() {
+        let rectangle_histogram = vec![];
+        let largest_rectangle = solution(rectangle_histogram);
+        assert_eq!(largest_rectangle, 0);
+    }
+
+    #[test]
+    fn it_works_with_single_rectangle() {
+        let rectangle_histogram = vec![1];
+        let largest_rectangle = solution(rectangle_histogram);
+        assert_eq!(largest_rectangle, 1);
+    }
+
+    #[test]
+    fn it_works_with_sample_problem() {
         let rectangle_histogram = vec![1, 3, 2, 5];
         let largest_rectangle = solution(rectangle_histogram);
         assert_eq!(largest_rectangle, 6);
