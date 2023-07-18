@@ -1,6 +1,7 @@
 This problem was asked by Microsoft.
 
-Given a 2D matrix of characters and a target word, write a function that returns whether the word can be found in the matrix by going left-to-right, or up-to-down.
+Given a 2D matrix of characters and a target word, 
+write a function that returns whether the word can be found in the matrix by going left-to-right, or up-to-down.
 
 For example, given the following matrix:
 
@@ -9,4 +10,16 @@ For example, given the following matrix:
  ['A', 'N', 'O', 'B'],
  ['M', 'A', 'S', 'S']]
 
-and the target word 'FOAM', you should return true, since it's the leftmost column. Similarly, given the target word 'MASS', you should return true, since it's the last row.
+
+and the target word 'FOAM', you should return true, since it's the leftmost column.
+Similarly, given the target word 'MASS', you should return true, since it's the last row.  
+  
+Some assumptions:
+* each row has same length
+* each column has same length
+
+
+n = 2
+m = 1
+[['A'],
+ ['B']]
